@@ -1,0 +1,60 @@
+LogDNA JS Challenge
+===================
+
+Hi! Great job on your CSS solution. Now that we've seen your CSS chops, let's see how you handle JavaScript.
+
+----------
+Background
+----------
+
+You will find included an 'index.html' file along with a 'mock.js' file inside a /js folder.
+The HTML file includes a small snippet of a filter dropdown taken from our existing webapp today (https://app.logdna.com). We would like
+to see you implement a dropdown interface that fulfills the requirements below. How you design this is entirely up to you. Our goal is
+to gauge your UX prowess along with your ability to execute (from a javascript coding perspective).
+
+Your submission will be evaluated based on:
+* correctness of solution
+* intuitiveness of your UX (ie. is it easy to understand what each component of the UI does? does it handle error conditions well?)
+* coding style and quality
+
+If any of the prompt is unclear or you have further questions, you can send them to mike@logdna.com
+
+------------
+Requirements
+------------
+
+* A dropdown containing a list of 'hosts' should show up when clicking on the 'Hosts Dropdown' element
+* The initial list of hosts can be populated by using an AJAX endpoint '/get-hosts'
+* Each 'host' within the dropdown should be 'checkable' in the sense that a user has the option to select one or many options within this dropdown
+* Each 'host' will have the ability to be 'deleted' via an AJAX endpoint '/delete-host'
+* Upon closing the dropdown, a signal should be sent containing the list of checked options (a simple console.log is ok here)
+* The dropdown itself will be arranged alphabetically upon first render
+* The dropdown should have the ability toggle the ordering to reverse-alphabetical order and back again
+* The dropdown should have the ability to perform an in-string search to filter out non-matching hosts from the list
+* Clicking the 'Add a Random Host' button should insert a new random host into the dropdown (you can get the random host by using
+  the js function Mock.getRandomHost() as a part of the mock.js file)
+* Error from AJAX requires should show feedback of some sort to indicate an error has occurred
+
+------
+Extras
+------
+
+* The dropdown will have an optional ability to quickly select/deselect all options
+* When using the in-string search, the matching portion of the hosts will be highlighted to indicate why/how it matched
+
+---------------------------
+Constraints and Assumptions
+---------------------------
+
+* For this challenge, we are using a library called mockjax which allows us to simulate ajax calls without actually having an AJAX endpoint
+  - The two endpoints that are '/get-hosts' and '/delete-host' which allows you to get a list of hosts and "delete" a specific host respectively
+  - mockajax is supposed to override the default $.ajax() call such that calls made to those specific URL's will be caught and a mock response
+    will be sent instead (eliminating the need for a separate server component)
+* The 'Toggle Error Mode' button is so that you can toggle the mockajax endpoints to send back status:500 responses instead of the regular status:200
+* The 'Add a Random Host' button is meant to simulate an external event that sent an "add host" event which needs to be handled (imagine a scenario
+  in which we are using websockets, and the server decided to notify connected users that a new host has been added to their account)
+* Bootstrap is already included as a dependency along with jQuery, so feel free to use any of the tools available in those libraries
+* You can structure your code using Backbone if you like, but please do not use other frameworks (this challenge is meant to evaluate your knowledge
+  of javascript and client-side interaction design, not your knowledge of javascript frameworks)
+* Feel free to alter the index.html page as needed to get to your final solution
+* If there are any assumptions you are making as a part of your solution, please document it along with your solution
