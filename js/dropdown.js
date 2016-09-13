@@ -12,7 +12,7 @@ $(document).ready(function() {
       console.log('these are the hosts themselves', hosts);
       $.each(hosts, function(index, host) {
         $("#host-options")
-          .append('<label><input class="host" type="checkbox" value=' + index + '>  ' + host + '</label>');
+          .append('<label><input class="host" type="checkbox" value=' + host + '>  ' + host + '</label>');
       })
     },
     error: function(error) {
@@ -22,6 +22,13 @@ $(document).ready(function() {
 
   $('#search-btn').click(function() {
     console.log( )
+  });
+
+  $("#submit").click(function() {
+    var selectedHosts = $.map($(".host:checked"), function(host) {
+      return host.value;
+    });
+    return console.log('User selected the following hosts:', selectedHosts); 
   });
 
   $('.host-options').click(function(){
@@ -40,45 +47,38 @@ $(document).ready(function() {
     });
   });
 
+  $("#sort-deselect").click(function() {
+    $.each($(".host"), function(index, host) {
+      $(host).prop("checked", false);
+    });
+  });
+
   $('#sort-alpha').click(function(){
-    console.log('alphabetical sorting clicked', hosts);
     var alphaHosts = hosts.sort(function(a, b) {
       var x = a.toLowerCase(), y = b.toLowerCase();
       return x < y ? -1 : x > y ? 1 : 0;
     })
-    console.log('alphaHosts hosts sorted are', alphaHosts);
+
     $('#host-options').empty();
     $.each(alphaHosts, function(index, host) {
       $("#host-options")
-        .append('<label><input class="host" type="checkbox" value=' + index + '>  ' + host + '</label>');
+        .append('<label><input class="host" type="checkbox" value=' + host + '>  ' + host + '</label>');
     })
   });
 
 
   $('#sort-r-alpha').click(function(){
-    console.log('reverse alphabetical sorting clicked', hosts);
-    // rAlphaHosts = hosts.sort(function(a, b) {
-    //   return b - a;
-    // })
     var rAlphaHosts = hosts.sort(function(a, b) {
       var x = a.toLowerCase(), y = b.toLowerCase();
       return x > y ? -1 : x < y ? 1 : 0;
     })
 
-    console.log('hosts reverse sorted are', rAlphaHosts);
+    $('#host-options').empty();
     $.each(rAlphaHosts, function(index, host) {
-      $("#host-options").replaceWith().html('<label><input class="host" type="checkbox" value=' + index + '>  ' + host + '</label>');
-    });
+      $("#host-options")
+        .append('<label><input class="host" type="checkbox" value=' + host + '>  ' + host + '</label>');
+    })
   });
-
-  // $('input[type="checkbox"]').click(function(){
-  //     if($(this).prop("checked") == true){
-  //         alert("Checkbox is checked.");
-  //     }
-  //     else if($(this).prop("checked") == false){
-  //         alert("Checkbox is unchecked.");
-  //     }
-  // });
 
   $("#filter-button").click(function() {
     console.log('dropdown button clicked');
