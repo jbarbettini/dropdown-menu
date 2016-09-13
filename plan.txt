@@ -18,12 +18,12 @@ What I Need to Do
 
 
 Checkpoints
-[ ] console.log the /get-host initial list ('/get-host')
-[ ] get dropdown button to click
-[ ] render a box overlay
-[ ] render the search bar 
-[ ] render the list in dropdown with bootstrap --> can calculate number of columns needed by list of initial host array 
-[ ] create ability to click host option 
+[X] console.log the /get-host initial list ('/get-host')
+[X] get dropdown button to click
+[X] render a box overlay
+[X] render the search bar 
+[X] render the list in dropdown with bootstrap --> can calculate number of columns needed by list of initial host array 
+[X] create ability to click host option 
 [ ] create ability to delete host option ('/delete-host')
 [ ] console.log selected hosts after dropdown close
 [ ] create ability to add a new host to list ('add host function ') 
@@ -40,5 +40,6 @@ Checkpoints
 
 Assumptions
 [ ] Add random host doesn't persist 
+[ ] Initialized 'setup' with a success status code so that I didn't have to toggle Error mode upon page load 
 
 

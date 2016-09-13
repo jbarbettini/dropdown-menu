@@ -334,12 +334,14 @@
     var mode = SUCCESS_MODE;
 
     var toggleMode = function() {
-        if (mode === SUCCESS_MODE) {
-            mode = ERROR_MODE;
-        } else {
-            mode = SUCCESS_MODE;
-        }
-        setup(mode ? 200 : 500);
+      console.log('mode is currently', mode);
+      if (mode === SUCCESS_MODE) {
+          mode = ERROR_MODE;
+      } else {
+          mode = SUCCESS_MODE;
+      }
+      setup(mode ? 200 : 500);
+      console.log('toggleMode was toggled to', mode);
     };
 
     var getRandomHost = function() {
@@ -350,8 +352,10 @@
         };
     };
 
+    setup(200); // initialize setup so that I don't have to toggle error mode upon page load
+
     return {
-        toggleMode: toggleMode
-      , getRandomHost: getRandomHost
+        toggleMode: toggleMode,
+        getRandomHost: getRandomHost
     };
 });

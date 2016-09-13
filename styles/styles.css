@@ -1,0 +1,124 @@
+.wrapper { width: 100%; height: 100vh; background-color: #f1f1f2; }
+
+header { width: 100%; height: 56px; background-color: #333; box-shadow: 0 1px 2px rgba(0,0,0,0.4); padding: 0 40px; }
+
+.filter-options { margin-right: 60px; }
+.filter { float: left; margin-top: 10px; margin-left: 20px; user-select: none; }
+.filter-title { font-size: 18px; font-weight: 100; line-height: 34px; text-shadow: 0 1px 0 rgba(0,0,0,0.6); cursor: pointer; color: #f1f1f2; }
+.dummy-content { width: 100%; height: 600px; text-align: center; padding-top: 40px; }
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 5vh;
+  right: 5vw;
+  font-size: 5rem;  
+}
+#custom-search-input{
+  border: solid 1px #E4E4E4;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+#custom-search-input input{
+  border: 0;
+  box-shadow: none;
+}
+
+#custom-search-input button{
+  margin: 2px 0 0 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  color: #666666;
+  padding: 0 8px 0 10px;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+  font-size: 14px;
+}
+
+.select-by {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.select-by ul, li {
+  display: inline;
+  padding: 0 2rem;
+  margin: 0;
+  font-family: 'Lato';
+  color: white;
+  font-size: 2rem;
+  list-style: none;
+
+}
+
+.select-by li {
+  border-right: 1px solid white;
+}
+
+.host-options {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-left: 2rem;
+  overflow-y: scroll;
+  height: 50vh;
+}
+
+label {
+  font-family: 'Lato';
+  color: white;
+  font-size: 1.5rem;
+  width: 20%;
+  padding: 1rem;
+}
+
+a {
+  color: white;
+}
+
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: #5bc0de;
+}
+
+.submit {
+  position: absolute;
+  bottom: 10vh;
+  right: 10vw; 
+}
+
+.submit button {
+  padding: 1rem 5rem;
+}
+
+

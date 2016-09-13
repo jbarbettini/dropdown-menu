@@ -8,26 +8,7 @@
   <meta name="theme-color" content="#db0a5b">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato" />
-  <style>
-    .wrapper { width: 100%; background-color: #f1f1f2; }
-    header { width: 100%; height: 56px; background-color: #333; box-shadow: 0 1px 2px rgba(0,0,0,0.4); padding: 0 40px; }
-    .overlay {
-      height: 0%;
-      width: 100%;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color: rgb(0,0,0);
-      background-color: rgba(0,0,0, 0.9);
-      overflow-y: hidden;
-      transition: 0.5s;
-    }
-    .filter-options { margin-right: 60px; }
-    .filter { float: left; margin-top: 10px; margin-left: 20px; user-select: none; }
-    .filter-title { font-size: 18px; font-weight: 100; line-height: 34px; text-shadow: 0 1px 0 rgba(0,0,0,0.6); cursor: pointer; color: #f1f1f2; }
-    .dummy-content { width: 100%; height: 600px; text-align: center; padding-top: 40px; }
-  </style>
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
   <div class="wrapper">
@@ -40,20 +21,47 @@
         </div>
       </div>
     </header>
-    <div id="myNav" class="overlay">
+
+    <div id="dropdown-modal" class="overlay">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <div class="overlay-content">
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+      <div class="overlay-content container">
+        <div class="row">
+          <div class="col-md-12">
+            <div id="custom-search-input">
+              <div class="input-group">
+                <input type="text" class="form-control input-lg" placeholder="Search Hosts..." />
+                <span class="input-group-btn">
+                  <button class="btn btn-info btn-lg" type="button">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+            <div class="row select-by">
+              <ul> 
+                <span> Sort By: </span> 
+                <li id="sort-alpha"><a href="#"> Alphabetical </a></li>
+                <li id="sort-r-alpha"><a href="#"> Reverse-Alphabetical </a></li>
+                <li id="sort-select"><a href="#"> Select All </a></li>
+                <li id="sort-deselect"><a > Deselect All </a></li>
+              </ul>
+            </div>
+            <div class="row">
+              <div class="host-options">
+              </div>
+            </div>
+          </div>
+          <div class="row submit">
+              <button type="button" class="btn btn-success btn-lg">Submit</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="dummy-content">
       <button type="button" class="btn btn-info btn-lg" id="add-random-host">Add a Random Host</button>
       <button type="button" class="btn btn-warning btn-lg" id="toggle-error-mode">Toggle Error Mode</button>
-    </div>
+    </div>""
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -66,11 +74,11 @@
     $('#toggle-error-mode').on('click', function() { Mock.toggleMode(); });
 
     function openNav() {
-        document.getElementById("myNav").style.height = "100%";
+        document.getElementById("dropdown-modal").style.height = "100%";
     }
 
     function closeNav() {
-        document.getElementById("myNav").style.height = "0%";
+        document.getElementById("dropdown-modal").style.height = "0%";
     }
   </script>
 
