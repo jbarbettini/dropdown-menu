@@ -11,7 +11,8 @@ $(document).ready(function() {
       });
       console.log('these are the hosts themselves', hosts);
       $.each(hosts, function(index, host) {
-        $(".host-options").append('<label><input class="host" type="checkbox" value=' + index + '>  ' + host + '</label>');
+        $("#host-options")
+          .append('<label><input class="host" type="checkbox" value=' + index + '>  ' + host + '</label>');
       })
     },
     error: function(error) {
@@ -19,35 +20,38 @@ $(document).ready(function() {
     }
   });
 
-  $('.host').click(function(){
+  $('#search-btn').click(function() {
+    console.log( )
+  });
+
+  $('.host-options').click(function(){
     console.log('checkbox working');
     if($(this).prop("checked")){
       console.log("Checkbox prop is checked", this.value);
     }
     if($(this).is(':checked')) {
-      console.log('checkbox is checked', this.value);
+      console.log('Checkbox is checked', this.value);
     }
   });
 
-  // $('#sort-alpha').on('click', function () {
-  //   var alphabeticallyOrderedDivs = $('.host-options').sort(function (a, b) {
-  //       return $(a).find("label").text() - $(b).find("label").text();
-  //   });
-  //   $(".host-options").html(alphabeticallyOrderedDivs);
-  // });
+  $("#sort-select").click(function() {
+    $.each($(".host"), function(index, host) {
+      $(host).prop("checked", true);
+    });
+  });
+
   $('#sort-alpha').click(function(){
     console.log('alphabetical sorting clicked', hosts);
     var alphaHosts = hosts.sort(function(a, b) {
       var x = a.toLowerCase(), y = b.toLowerCase();
       return x < y ? -1 : x > y ? 1 : 0;
     })
-    // var pureSort = hosts.sort()
     console.log('alphaHosts hosts sorted are', alphaHosts);
-    // console.log('pureSort hosts sorted are', pureSort);
-
+    $('#host-options').empty();
     $.each(alphaHosts, function(index, host) {
-      $(".host-options").replaceAll('.host').html('<label><input class="host" type="checkbox" value=' + index + '>  ' + host + '</label>');
-    });
+      $("#host-options")
+        .append('<label><input class="host" type="checkbox" value=' + index + '>  ' + host + '</label>');
+    })
   });
 
 
@@ -63,7 +67,7 @@ $(document).ready(function() {
 
     console.log('hosts reverse sorted are', rAlphaHosts);
     $.each(rAlphaHosts, function(index, host) {
-      $(".host-options").replaceWith().html('<label><input class="host" type="checkbox" value=' + index + '>  ' + host + '</label>');
+      $("#host-options").replaceWith().html('<label><input class="host" type="checkbox" value=' + index + '>  ' + host + '</label>');
     });
   });
 
