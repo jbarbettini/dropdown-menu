@@ -29,7 +29,7 @@
           <div class="col-md-12">
             <div id="custom-search-input">
               <div class="input-group">
-                <input type="text" class="form-control input-lg" placeholder="Search Hosts..." />
+                <input type="text" class="form-control input-lg" id="search-field" placeholder="Search Hosts..." />
                 <span class="input-group-btn">
                   <button class="btn btn-info btn-lg" id="search-btn" type="button">
                     <i class="glyphicon glyphicon-search"></i>
@@ -39,9 +39,10 @@
             </div>
             <div class="row select-by">
               <ul> 
-                <span> Sort By: </span> 
+                <h2> Sort By: </h2> 
                 <li id="sort-alpha"><a href="#"> Alphabetical </a></li>
-                <li id="sort-r-alpha"><a href="#"> Reverse-Alphabetical </a></li>
+                <li class="border-after" id="sort-r-alpha"><a href="#"> Reverse-Alphabetical </a></li>
+                <h2> Select By: </h2> 
                 <li id="sort-select"><a href="#"> Select All </a></li>
                 <li id="sort-deselect"><a href="#"> Deselect All </a></li>
               </ul>

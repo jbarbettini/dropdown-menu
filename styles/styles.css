@@ -70,7 +70,7 @@ header { width: 100%; height: 56px; background-color: #333; box-shadow: 0 1px 2p
   padding: 2rem;
 }
 
-.select-by ul, li {
+.select-by ul, li, h2 {
   display: inline;
   padding: 0 2rem;
   margin: 0;
@@ -81,7 +81,7 @@ header { width: 100%; height: 56px; background-color: #333; box-shadow: 0 1px 2p
 
 }
 
-.select-by li {
+.border-after {
   border-right: 1px solid white;
 }
 
@@ -121,4 +121,44 @@ a:hover, a:focus, a:active {
   padding: 1rem 5rem;
 }
 
+/* adapted from http://maxwells.github.io/bootstrap-tags.html */
+.remove-tag {
+  font-size: 1.5rem;
+  padding: .3em .4em .4em;
+  margin: 0 .1em;
+  display: flex;
+  align-items: center;
+}
+
+.glyphicon i {
+  color: (255, 255, 255, 0.2) !important;
+}
+
+ul > li > a:hover > .glyphicon {
+  opacity: 1.0;
+}
+
+/*.tag {
+  
+}
+.tag a {
+  color: #bbb;
+  cursor: pointer;
+  opacity: 0.6;
+}
+.tag a:hover {
+  opacity: 1.0
+}
+.tag .remove {
+  vertical-align: bottom;
+  top: 0;
+}
+.tag a {
+  margin: 0 0 0 .3em;
+}
+.tag a .glyphicon-white {
+  color: #fff;
+  margin-bottom: 2px;
+}
+*/
 
