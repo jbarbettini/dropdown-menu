@@ -5,14 +5,10 @@ $(document).ready(function() {
   function printHosts(hosts) {
     $.each(hosts, function(index, host) {
       $("#host-options")
-        .append('<label class="host"><input type="checkbox" value=' + host + '>  ' + host + '<a href="#" class="remove-tag"><i class="remove glyphicon glyphicon-remove"></i></a></label>');
+        .append('<label><input class="host" type="checkbox" value=' + host + '>  ' + host + '<a href="#" class="remove-tag"><i class="remove glyphicon glyphicon-remove"></i></a></label>');
     });
     // addHover();
   }
-
-  // function addHover() {
-  //   $('label').append('<a href="#" class="remove-tag"><i class="remove glyphicon glyphicon-remove"></i></a>');
-  // }
 
   // GET call for initial host list 
   $.ajax({
@@ -69,15 +65,10 @@ $(document).ready(function() {
 
   // delete host
   $('#host-options').on('click', '.remove-tag', (function() {
-    console.log('remove tag click registered');
-    var deletedHost = $(this).closest('.host')[0].innerText;
-    console.log(deletedHost);
-    console.log(typeof deletedHost);
-    console.log(hosts[0].valueOf());
-    console.log(deletedHost.toLowerCase() === hosts[0].toLowerCase());
-    console.log(typeof hosts[0]);
-    $(this).closest('.host').remove();
-
+    var deletedHost = $(this).parent().children()[0].value;
+    var position = hosts.indexOf(deletedHost);
+    hosts.splice(position, 1); 
+    $(this).parent().remove();
   }));
 
   // select all hosts 
