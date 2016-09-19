@@ -128,7 +128,6 @@ a:hover, a:focus, a:active {
   padding: 1rem 5rem;
 }
 
-/* adapted from http://maxwells.github.io/bootstrap-tags.html */
 .remove-tag {
   font-size: 1.5rem;
   padding: .3em .4em .4em;

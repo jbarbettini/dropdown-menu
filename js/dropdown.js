@@ -7,7 +7,6 @@ $(document).ready(function() {
       $("#host-options")
         .append('<label><input class="host" type="checkbox" value=' + host + '>  ' + host + '<a href="#" class="remove-tag"><i class="remove glyphicon glyphicon-remove"></i></a></label>');
     });
-    // addHover();
   }
 
   // GET call for initial host list 
@@ -19,6 +18,7 @@ $(document).ready(function() {
         return host.name;
       });
       console.log('these are the current hosts', hosts);
+      $('#host-options').empty();
       printHosts(hosts)
     },
     error: function(error) {
@@ -27,7 +27,7 @@ $(document).ready(function() {
         .html('<h2>There was an error in the initial host call. Please toggle the error code and try again.</h2>');
     }
   });
-
+  
   // Register search by click or 'enter' keypress
   $('#search-btn').click(function() {
     searchHosts();
